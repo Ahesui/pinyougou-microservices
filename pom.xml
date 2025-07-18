@@ -13,6 +13,7 @@
     <module>pinyougou-user-service</module>
     <module>pinyougou-product-service</module>
     <module>pinyougou-gateway</module>
+    <module>pinyougou-notification-service</module>
 </modules>
 
 <properties>
@@ -24,6 +25,7 @@
       <spring-cloud.version>2025.0.0</spring-cloud.version>
     <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version> 
     <lombok.version>1.18.30</lombok.version>
+    <rocketmq.version>2.2.3</rocketmq.version>  
 </properties>
 
 <dependencyManagement> <!-- 统一管理依赖版本，子模块无需指定版本号 -->
@@ -49,6 +51,11 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
+        <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
     </dependencies>
 </dependencyManagement>
 

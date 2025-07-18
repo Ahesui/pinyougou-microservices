@@ -11,9 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder; // 导入加密器
+import lombok.RequiredArgsConstructor; 
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class UserService {
 
     @Autowired
@@ -21,12 +23,16 @@ public class UserService {
 
     @Autowired
     private NotificationService notificationService; // 注入通知服务
+    
+    private final UserEventProducer userEventProducer;
+
 
     @Autowired
     private PasswordEncoder passwordEncoder; // 注入加密器
 
     @Autowired
     private UserRepository userRepository;
+
     // /**
     //  * 用户注册方法
     //  * @param user 用户信息
@@ -48,10 +54,13 @@ public class UserService {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         User savedUser = userRepository.save(user);
-        // 调用异步方法
-        notificationService.sendWelcomeMessage(savedUser);
+        // // 调用异步方法
+        // notificationService.sendWelcomeMessage(savedUser);
 
-        log.info("用户 {} 注册方法执行完毕，主线程返回。", savedUser.getUsername());
+        // log.info("用户 {} 注册方法执行完毕，主线程返回。", savedUser.getUsername());
+
+        // 逻辑变得非常清晰：注册成功后，发送一个“用户已注册”的事件消息
+        userEventProducer.sendUserRegisteredMessageAsync(savedUser);
         // 3. 保存用户
         return savedUser;
     }

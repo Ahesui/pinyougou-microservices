@@ -8,7 +8,6 @@
         <groupId>com.poap</groupId>
         <artifactId>pinyougou-microservices</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath> 
     </parent>
 
     <artifactId>pinyougou-gateway</artifactId>
