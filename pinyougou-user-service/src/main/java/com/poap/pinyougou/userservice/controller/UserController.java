@@ -38,8 +38,9 @@ public class UserController {
 
     @GetMapping("/{id}")
     public Result<User> getUserById(@PathVariable Long id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("用户不存在"));
+        // User user = userRepository.findById(id)
+        //         .orElseThrow(() -> new RuntimeException("用户不存在"));
+        User user = userService.findById(id);
         user.setPassword(null); // 永远不要返回密码
         return Result.success(user);
     }

@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.15 # 选择一个稳定版本
+    container_name: es
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # 开发环境限制内存
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+  kibana:
+    image: kibana:7.17.15
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://es:9200 # kibana连接es
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+  logstash:
+    image: logstash:7.17.15
+    container_name: logstash
+    ports:
+      - "4760:4760" # 暴露一个TCP端口接收日志 (可选)
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - /e/code_space/java/2025/07/3/logs/pinyougou-logs:/usr/share/logstash/sincedb
+    depends_on:
+      - elasticsearch
+
+volumes:
+  es_data:
+    driver: local

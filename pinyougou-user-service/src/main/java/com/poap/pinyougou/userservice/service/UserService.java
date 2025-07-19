@@ -8,7 +8,10 @@ import com.poap.pinyougou.userservice.service.login.LoginStrategyFactory;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder; // 导入加密器
 import lombok.RequiredArgsConstructor; 
@@ -17,6 +20,8 @@ import lombok.RequiredArgsConstructor;
 @Slf4j
 @RequiredArgsConstructor
 public class UserService {
+
+    private final RedisTemplate<String, Object> redisTemplate; // 注入RedisTemplate
 
     @Autowired
     private LoginStrategyFactory loginStrategyFactory; // 注入策略工厂
@@ -86,6 +91,33 @@ public class UserService {
         // 为了安全，登录成功后返回的用户信息不应包含密码
         user.setPassword(null); 
         return user;
+    }
+
+     // 我们需要一个根据ID查询用户的方法
+    public User findById(Long id) {
+        final String userCacheKey = "user:" + id;
+
+        // 1. 先从缓存查询
+        User cachedUser = (User) redisTemplate.opsForValue().get(userCacheKey);
+        if (cachedUser != null) {
+            log.info("从Redis缓存中获取到用户, id: {}", id);
+            return cachedUser;
+        }
+
+        // 2. 缓存未命中，查询数据库
+        log.info("缓存未命中，从MySQL查询用户, id: {}", id);
+        User dbUser = userRepository.findById(id).orElse(null);
+
+        // 3. 将查询结果存入缓存
+        if (dbUser != null) {
+            // 设置缓存，并给一个10分钟的过期时间
+            redisTemplate.opsForValue().set(userCacheKey, dbUser, 10, TimeUnit.MINUTES);
+            log.info("已将用户信息存入Redis缓存, key: {}", userCacheKey);
+        } else {
+            // 缓存穿透预防：如果数据库中也不存在，可以缓存一个空对象或特殊值，并设置一个较短的过期时间
+            // redisTemplate.opsForValue().set(userCacheKey, null, 1, TimeUnit.MINUTES);
+        }
+        return dbUser;
     }
 
 }

@@ -15,13 +15,20 @@ import jakarta.persistence.Query;
 import com.poap.pinyougou.productservice.common.Result;
 import com.poap.pinyougou.productservice.dto.ProductDetailDTO;
 
+import java.util.concurrent.TimeUnit;
+
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
+
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
-     private final UserFeignClient userFeignClient; // 注入Feign客户端
+    private final UserFeignClient userFeignClient; // 注入Feign客户端
+    private final RedissonClient redissonClient; // 注入Redisson客户端
 
     @Autowired
     private EntityManager entityManager;
@@ -157,4 +164,42 @@ public class ProductService {
          }
          return false;
     }
+
+    // 版本四：基于Redisson的分布式锁
+    public boolean seckillV4(Long productId) {
+        final String lockKey = "lock:product:" + productId;
+        RLock lock = redissonClient.getLock(lockKey);
+        
+        try {
+            // 1. 尝试获取锁，最多等待10秒，获取后30秒自动释放
+            boolean isLocked = lock.tryLock(10, 30, TimeUnit.SECONDS);
+
+            if (isLocked) {
+                log.info("线程 {}: 获取到Redisson分布式锁 {}", Thread.currentThread().getName(), lockKey);
+                // 业务逻辑 (和之前的V1版本一样)
+                Product product = productRepository.findById(productId).orElse(null);
+                if (product != null && product.getStock() > 0) {
+                    product.setStock(product.getStock() - 1);
+                    productRepository.save(product);
+                    log.info("库存扣减成功");
+                    return true;
+                }
+                return false;
+            } else {
+                log.info("线程 {}: 未能获取到分布式锁 {}", Thread.currentThread().getName(), lockKey);
+                return false;
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return false;
+        } finally {
+            // 2. 释放锁
+            if (lock.isHeldByCurrentThread()) {
+                lock.unlock();
+                log.info("线程 {}: 释放锁 {}", Thread.currentThread().getName(), lockKey);
+            }
+        }
+    }
+
+
 }

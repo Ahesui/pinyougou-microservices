@@ -45,6 +45,12 @@ public class ProductController {
         return success ? Result.success("秒杀成功") : Result.fail(500, "秒杀失败，库存不足");
     }
 
+    @PostMapping("/{productId}/seckill-v4")
+    public Result<String> seckillProductV4(@PathVariable Long productId) {
+        boolean success = productService.seckillV4(productId);
+        return success ? Result.success("秒杀成功") : Result.fail(500, "秒杀失败，库存不足");
+    }
+
     @GetMapping("/{id}/detail")
     public Result<ProductDetailDTO> getProductDetail(@PathVariable Long id) {
         ProductDetailDTO productDetail = productService.getProductDetail(id);

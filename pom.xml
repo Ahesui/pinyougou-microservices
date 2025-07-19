@@ -26,6 +26,8 @@
     <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version> 
     <lombok.version>1.18.30</lombok.version>
     <rocketmq.version>2.2.3</rocketmq.version>  
+     <jackson.version>2.15.3</jackson.version>
+     <logstash.version>8.1</logstash.version>
 </properties>
 
 <dependencyManagement> <!-- 统一管理依赖版本，子模块无需指定版本号 -->
@@ -56,6 +58,24 @@
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
                 <version>${rocketmq.version}</version>
             </dependency>
+
+                    <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.version}</version> 
+        </dependency>
     </dependencies>
 </dependencyManagement>
 
