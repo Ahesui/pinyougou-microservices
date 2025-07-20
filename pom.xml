@@ -28,6 +28,7 @@
     <rocketmq.version>2.2.3</rocketmq.version>  
      <jackson.version>2.15.3</jackson.version>
      <logstash.version>8.1</logstash.version>
+     <micrometer.version>1.12.0</micrometer.version>
 </properties>
 
 <dependencyManagement> <!-- 统一管理依赖版本，子模块无需指定版本号 -->
@@ -77,6 +78,11 @@
             <version>${logstash.version}</version> 
         </dependency>
     </dependencies>
+    <dependency>
+        <groupId>io.micrometer</groupId>
+        <artifactId>micrometer-registry-prometheus</artifactId>
+        <version>${micrometer.version}</version>
+    </dependency>
 </dependencyManagement>
 
 <build>

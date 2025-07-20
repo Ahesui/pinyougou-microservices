@@ -1,5 +1,13 @@
-version: '3.7'
 services:
+  redis:
+    image: redis
+    container_name: redis-compose
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    mem_limit: 256m 
+
   elasticsearch:
     image: elasticsearch:7.17.15 # 选择一个稳定版本
     container_name: es
@@ -11,29 +19,87 @@ services:
       - "9300:9300"
     volumes:
       - es_data:/usr/share/elasticsearch/data
+    mem_limit: 1g
 
   kibana:
     image: kibana:7.17.15
     container_name: kibana
     environment:
       - ELASTICSEARCH_HOSTS=http://es:9200 # kibana连接es
+      - "NODE_OPTIONS=--max-old-space-size=256"
     ports:
       - "5601:5601"
     depends_on:
       - elasticsearch
+    mem_limit: 512m
 
   logstash:
     image: logstash:7.17.15
     container_name: logstash
     ports:
       - "4760:4760" # 暴露一个TCP端口接收日志 (可选)
+    environment:
+      # 限制Logstash的JVM堆内存
+      - "LS_JAVA_OPTS=-Xms256m -Xmx256m"      
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/pipeline:/usr/share/logstash/pipeline
       - /e/code_space/java/2025/07/3/logs/pinyougou-logs:/usr/share/logstash/sincedb
     depends_on:
       - elasticsearch
+    mem_limit: 512m
+
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    depends_on:
+      - nacos      
+    mem_limit: 512m
+
+  grafana:
+    image: grafana/grafana:10.2.0
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    mem_limit: 512m
+
+  skywalking-oap:
+    image: apache/skywalking-oap-server:9.6.0
+    container_name: skywalking-oap
+    ports:
+      - "11800:11800"
+      - "12800:12800"
+    environment:
+      SW_STORAGE: elasticsearch
+      SW_STORAGE_ES_CLUSTER_NODES: es:9200
+      # 限制SkyWalking OAP的JVM堆内存
+      SW_OAP_JVM_OPTS: "-Xms256m -Xmx512m"
+    depends_on:
+      - elasticsearch
+    mem_limit: 1g
+
+  skywalking-ui:
+    image: apache/skywalking-ui:9.6.0
+    container_name: skywalking-ui
+    ports:
+      - "19090:8080"
+    environment:
+      SW_OAP_ADDRESS: http://skywalking-oap:12800
+    depends_on:
+      - skywalking-oap
+    mem_limit: 256m 
 
 volumes:
   es_data:
-    driver: local
+  prometheus_data:
+  grafana_data:
+  redis_data:
