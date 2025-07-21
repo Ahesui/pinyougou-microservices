@@ -17,21 +17,18 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
-
-  - job_name: 'nacos'
-    metrics_path: /nacos/metrics
+  - job_name: 'gateway'
+    metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['nacos:8848']
+      - targets: ['host.docker.internal:18080']  # 改成你的 Spring Boot 服务地址
+  - job_name: 'nacos-server'
+    metrics_path: '/nacos/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8848']  # 改成你运行 Nacos 的地址
   - job_name: 'pinyougou-services'
-    # 使用Nacos作为服务发现
-    nacos_sd_configs:
-      - server: 'host.docker.internal:8848' # **关键**: 从容器内访问宿主机的Nacos
-    relabel_configs:
-      # 只保留暴露了/actuator/prometheus接口的服务
-      - source_labels: [__meta_nacos_service_metadata_actuator_prometheus_exist]
-        action: keep
-        regex: true
-      # 从Nacos元数据中提取服务名作为实例标识
-      - source_labels: [__meta_nacos_service_name, __meta_nacos_instance_ip, __meta_nacos_instance_port]
-        separator: ':'
-        target_label: instance
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets:
+          - 'HOST.DOCKER.INTERNAL:18080'  # pinyougou-gateway
+          - 'HOST.DOCKER.INTERNAL:18081'  # pinyougou-user-service
+          - 'HOST.DOCKER.INTERNAL:18082'  # pinyougou-product-service

@@ -23,3 +23,10 @@ logging.file.path=logs/pinyougou-logs
 management.endpoints.web.exposure.include=*
 # 在Nacos元数据中添加一个标签，告诉Prometheus“我有监控接口”
 spring.cloud.nacos.discovery.metadata.actuator_prometheus_exist=true
+
+
+# Spring Cloud Gateway CORS Configuration (Updated for newer versions)
+spring.cloud.gateway.server.webflux.globalcors.cors-configurations.['[/**]'].allowed-origins=http://localhost:5173
+spring.cloud.gateway.server.webflux.globalcors.cors-configurations.['[/**]'].allowed-methods=GET,POST,PUT,DELETE,OPTIONS
+spring.cloud.gateway.server.webflux.globalcors.cors-configurations.['[/**]'].allow-credentials=true
+spring.cloud.gateway.server.webflux.globalcors.cors-configurations.['[/**]'].allowed-headers=*

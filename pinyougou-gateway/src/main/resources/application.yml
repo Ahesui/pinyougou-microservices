@@ -1,0 +1,39 @@
+server:
+  port: 18080
+
+spring:
+  application:
+    name: pinyougou-gateway
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: user-service-route
+          uri: lb://pinyougou-user-service
+          predicates:
+            - Path=/api/users/**
+        - id: product-service-route
+          uri: lb://pinyougou-product-service
+          predicates:
+            - Path=/api/products/**
+cors:
+  allowed-origins: "http://127.0.0.1:3000,http://localhost:3000"
+logging:
+  file:
+    name: logs/pinyougou-logs/gateway.log
+    path: logs/pinyougou-logs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

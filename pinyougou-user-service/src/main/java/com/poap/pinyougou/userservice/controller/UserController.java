@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.poap.pinyougou.userservice.common.Result;
 import com.poap.pinyougou.userservice.controller.dto.LoginRequest;
 import com.poap.pinyougou.userservice.repository.UserRepository;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -43,5 +44,12 @@ public class UserController {
         User user = userService.findById(id);
         user.setPassword(null); // 永远不要返回密码
         return Result.success(user);
+    }
+
+
+    @GetMapping
+    public Result<List<User>> getAllUsers() {
+        List<User> users = userService.findAllUsers();
+        return Result.success(users);
     }
 }

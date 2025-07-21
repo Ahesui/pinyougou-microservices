@@ -1,0 +1,219 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.poap:pinyougou-gateway:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ line 66, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< com.poap:pinyougou-gateway >---------------------
+[INFO] Building pinyougou-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.pom
+Progress (1): 0.5/19 kBProgress (1): 17/19 kB Progress (1): 19 kB                      Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.pom (19 kB at 3.4 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/jackson-base/2.15.3/jackson-base-2.15.3.pom
+Progress (1): 7.3/11 kBProgress (1): 11 kB                       Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/jackson-base/2.15.3/jackson-base-2.15.3.pom (11 kB at 78 kB/s)
+[INFO] Artifact com.fasterxml.jackson:jackson-bom:pom:2.15.3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyunmaven (https://maven.aliyun.com/repository/public, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots, default, snapshots)]
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/jackson-bom/2.15.3/jackson-bom-2.15.3.pom
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/jackson-bom/2.15.3/jackson-bom-2.15.3.pom (0 B at 0 B/s)
+[INFO] Artifact com.fasterxml.jackson:jackson-parent:pom:2.15 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyunmaven (https://maven.aliyun.com/repository/public, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots, default, snapshots)]
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/jackson-parent/2.15/jackson-parent-2.15.pom
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/jackson-parent/2.15/jackson-parent-2.15.pom (0 B at 0 B/s)
+[INFO] Artifact com.fasterxml:oss-parent:pom:50 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyunmaven (https://maven.aliyun.com/repository/public, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots, default, snapshots)]
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/oss-parent/50/oss-parent-50.pom
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/oss-parent/50/oss-parent-50.pom (0 B at 0 B/s)
+[INFO] Artifact org.junit:junit-bom:pom:5.9.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyunmaven (https://maven.aliyun.com/repository/public, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots, default, snapshots)]
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/junit/junit-bom/5.9.2/junit-bom-5.9.2.pom
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/junit/junit-bom/5.9.2/junit-bom-5.9.2.pom (0 B at 0 B/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.pom
+Progress (1): 4.9 kB                    Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.pom (4.9 kB at 14 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/module/jackson-modules-java8/2.15.3/jackson-modules-java8-2.15.3.pom
+Progress (1): 3.1 kB                    Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/module/jackson-modules-java8/2.15.3/jackson-modules-java8-2.15.3.pom (3.1 kB at 4.0 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/net/logstash/logback/logstash-logback-encoder/8.1/logstash-logback-encoder-8.1.pom
+Progress (1): 5.3 kB                    Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/net/logstash/logback/logstash-logback-encoder/8.1/logstash-logback-encoder-8.1.pom (5.3 kB at 65 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-starter-actuator/3.5.3/spring-boot-starter-actuator-3.5.3.pom
+Progress (1): 1.9/2.8 kBProgress (1): 2.8 kB                        Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-starter-actuator/3.5.3/spring-boot-starter-actuator-3.5.3.pom (2.8 kB at 9.8 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-actuator-autoconfigure/3.5.3/spring-boot-actuator-autoconfigure-3.5.3.pom
+Progress (1): 2.9 kB                    Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-actuator-autoconfigure/3.5.3/spring-boot-actuator-autoconfigure-3.5.3.pom (2.9 kB at 11 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-actuator/3.5.3/spring-boot-actuator-3.5.3.pom
+Progress (1): 1.9/2.0 kBProgress (1): 2.0 kB                        Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-actuator/3.5.3/spring-boot-actuator-3.5.3.pom (2.0 kB at 28 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-jakarta9/1.15.1/micrometer-jakarta9-1.15.1.pom
+Progress (1): 1.9/3.8 kBProgress (1): 3.8 kB                        Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-jakarta9/1.15.1/micrometer-jakarta9-1.15.1.pom (3.8 kB at 12 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-core/1.15.1/micrometer-core-1.15.1.pom
+Progress (1): 3.3/11 kBProgress (1): 11 kB                       Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-core/1.15.1/micrometer-core-1.15.1.pom (11 kB at 161 kB/s)
+[INFO] Artifact org.hdrhistogram:HdrHistogram:pom:2.2.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyunmaven (https://maven.aliyun.com/repository/public, default, releases)]
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.pom
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.pom (0 B at 0 B/s)
+[INFO] Artifact org.latencyutils:LatencyUtils:pom:2.0.3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyunmaven (https://maven.aliyun.com/repository/public, default, releases)]
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.pom
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.pom (0 B at 0 B/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-registry-prometheus/1.12.0/micrometer-registry-prometheus-1.12.0.pom
+Progress (1): 3.4 kB                    Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-registry-prometheus/1.12.0/micrometer-registry-prometheus-1.12.0.pom (3.4 kB at 60 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/io/prometheus/simpleclient_common/0.16.0/simpleclient_common-0.16.0.pom
+Progress (1): 1.6 kB                    Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/io/prometheus/simpleclient_common/0.16.0/simpleclient_common-0.16.0.pom (1.6 kB at 39 kB/s)
+[INFO] Artifact org.latencyutils:LatencyUtils:jar:2.0.3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyunmaven (https://maven.aliyun.com/repository/public, default, releases)]
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/net/logstash/logback/logstash-logback-encoder/8.1/logstash-logback-encoder-8.1.jar
+Progress (1): 1.9/440 kBProgress (1): 18/440 kB Progress (1): 35/440 kBProgress (1): 51/440 kBProgress (1): 67/440 kBProgress (1): 84/440 kBProgress (1): 100/440 kBProgress (1): 117/440 kBProgress (1): 133/440 kBProgress (1): 149/440 kBProgress (1): 160/440 kBProgress (1): 176/440 kBProgress (1): 192/440 kBProgress (1): 209/440 kBProgress (1): 225/440 kBProgress (1): 241/440 kBProgress (1): 258/440 kBProgress (1): 274/440 kBProgress (1): 291/440 kBProgress (1): 307/440 kBProgress (1): 323/440 kBProgress (1): 340/440 kBProgress (1): 356/440 kBProgress (1): 373/440 kBProgress (1): 389/440 kBProgress (1): 405/440 kBProgress (1): 422/440 kBProgress (1): 438/440 kBProgress (1): 440 kB                        Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/net/logstash/logback/logstash-logback-encoder/8.1/logstash-logback-encoder-8.1.jar (440 kB at 3.8 MB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-starter-actuator/3.5.3/spring-boot-starter-actuator-3.5.3.jar
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-actuator-autoconfigure/3.5.3/spring-boot-actuator-autoconfigure-3.5.3.jar
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-actuator/3.5.3/spring-boot-actuator-3.5.3.jar
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar
+Progress (1): 3.3/835 kBProgress (1): 20/835 kB Progress (1): 36/835 kBProgress (1): 52/835 kBProgress (1): 69/835 kBProgress (1): 85/835 kBProgress (1): 102/835 kBProgress (1): 118/835 kBProgress (1): 134/835 kBProgress (1): 151/835 kBProgress (1): 167/835 kBProgress (1): 184/835 kBProgress (1): 200/835 kBProgress (1): 216/835 kBProgress (2): 216/835 kB | 4.8/123 kBProgress (3): 216/835 kB | 4.8/123 kB | 1.9/4.8 kBProgress (3): 233/835 kB | 4.8/123 kB | 1.9/4.8 kBProgress (3): 233/835 kB | 19/123 kB | 1.9/4.8 kB Progress (3): 233/835 kB | 19/123 kB | 4.8 kB    Progress (3): 249/835 kB | 19/123 kB | 4.8 kBProgress (3): 249/835 kB | 24/123 kB | 4.8 kBProgress (3): 265/835 kB | 24/123 kB | 4.8 kBProgress (4): 265/835 kB | 24/123 kB | 4.8 kB | 0/1.6 MBProgress (4): 282/835 kB | 24/123 kB | 4.8 kB | 0/1.6 MBProgress (4): 282/835 kB | 40/123 kB | 4.8 kB | 0/1.6 MBProgress (4): 282/835 kB | 43/123 kB | 4.8 kB | 0/1.6 MBProgress (4): 282/835 kB | 49/123 kB | 4.8 kB | 0/1.6 MBProgress (4): 282/835 kB | 49/123 kB | 4.8 kB | 0/1.6 MBProgress (4): 298/835 kB | 49/123 kB | 4.8 kB | 0/1.6 MBProgress (4): 298/835 kB | 60/123 kB | 4.8 kB | 0/1.6 MBProgress (5): 298/835 kB | 60/123 kB | 4.8 kB | 0/1.6 MB | 3.3/704 kBProgress (5): 298/835 kB | 65/123 kB | 4.8 kB | 0/1.6 MB | 3.3/704 kBProgress (5): 315/835 kB | 65/123 kB | 4.8 kB | 0/1.6 MB | 3.3/704 kBProgress (5): 315/835 kB | 76/123 kB | 4.8 kB | 0/1.6 MB | 3.3/704 kBProgress (5): 315/835 kB | 76/123 kB | 4.8 kB | 0/1.6 MB | 20/704 kB Progress (5): 315/835 kB | 76/123 kB | 4.8 kB | 0/1.6 MB | 20/704 kBProgress (5): 315/835 kB | 76/123 kB | 4.8 kB | 0/1.6 MB | 36/704 kBProgress (5): 315/835 kB | 76/123 kB | 4.8 kB | 0.1/1.6 MB | 36/704 kBProgress (5): 315/835 kB | 84/123 kB | 4.8 kB | 0.1/1.6 MB | 36/704 kBProgress (5): 331/835 kB | 84/123 kB | 4.8 kB | 0.1/1.6 MB | 36/704 kBProgress (5): 331/835 kB | 84/123 kB | 4.8 kB | 0.1/1.6 MB | 36/704 kBProgress (5): 347/835 kB | 84/123 kB | 4.8 kB | 0.1/1.6 MB | 36/704 kBProgress (5): 347/835 kB | 84/123 kB | 4.8 kB | 0.1/1.6 MB | 52/704 kBProgress (5): 347/835 kB | 84/123 kB | 4.8 kB | 0.1/1.6 MB | 52/704 kBProgress (5): 347/835 kB | 84/123 kB | 4.8 kB | 0.1/1.6 MB | 69/704 kBProgress (5): 347/835 kB | 84/123 kB | 4.8 kB | 0.1/1.6 MB | 69/704 kBProgress (5): 347/835 kB | 100/123 kB | 4.8 kB | 0.1/1.6 MB | 69/704 kBProgress (5): 347/835 kB | 100/123 kB | 4.8 kB | 0.1/1.6 MB | 85/704 kBProgress (5): 364/835 kB | 100/123 kB | 4.8 kB | 0.1/1.6 MB | 85/704 kBProgress (5): 364/835 kB | 100/123 kB | 4.8 kB | 0.1/1.6 MB | 102/704 kBProgress (5): 380/835 kB | 100/123 kB | 4.8 kB | 0.1/1.6 MB | 102/704 kBProgress (5): 380/835 kB | 100/123 kB | 4.8 kB | 0.1/1.6 MB | 102/704 kBProgress (5): 380/835 kB | 116/123 kB | 4.8 kB | 0.1/1.6 MB | 102/704 kBProgress (5): 397/835 kB | 116/123 kB | 4.8 kB | 0.1/1.6 MB | 102/704 kBProgress (5): 397/835 kB | 116/123 kB | 4.8 kB | 0.1/1.6 MB | 118/704 kBProgress (5): 397/835 kB | 116/123 kB | 4.8 kB | 0.1/1.6 MB | 118/704 kBProgress (5): 397/835 kB | 116/123 kB | 4.8 kB | 0.1/1.6 MB | 134/704 kBProgress (5): 397/835 kB | 123 kB | 4.8 kB | 0.1/1.6 MB | 134/704 kB    Progress (5): 397/835 kB | 123 kB | 4.8 kB | 0.1/1.6 MB | 151/704 kBProgress (5): 397/835 kB | 123 kB | 4.8 kB | 0.1/1.6 MB | 151/704 kBProgress (5): 413/835 kB | 123 kB | 4.8 kB | 0.1/1.6 MB | 151/704 kBProgress (5): 413/835 kB | 123 kB | 4.8 kB | 0.1/1.6 MB | 167/704 kBProgress (5): 413/835 kB | 123 kB | 4.8 kB | 0.1/1.6 MB | 184/704 kBProgress (5): 413/835 kB | 123 kB | 4.8 kB | 0.1/1.6 MB | 200/704 kBProgress (5): 413/835 kB | 123 kB | 4.8 kB | 0.2/1.6 MB | 200/704 kBProgress (5): 413/835 kB | 123 kB | 4.8 kB | 0.2/1.6 MB | 216/704 kB                                                                    Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-starter-actuator/3.5.3/spring-boot-starter-actuator-3.5.3.jar (4.8 kB at 43 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-jakarta9/1.15.1/micrometer-jakarta9-1.15.1.jar
+Progress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 216/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 233/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 233/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 249/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 249/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 265/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 265/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 282/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 282/704 kBProgress (4): 413/835 kB | 123 kB | 0.2/1.6 MB | 298/704 kBProgress (4): 429/835 kB | 123 kB | 0.2/1.6 MB | 298/704 kBProgress (4): 429/835 kB | 123 kB | 0.2/1.6 MB | 315/704 kBProgress (4): 429/835 kB | 123 kB | 0.3/1.6 MB | 315/704 kBProgress (4): 446/835 kB | 123 kB | 0.3/1.6 MB | 315/704 kBProgress (4): 446/835 kB | 123 kB | 0.3/1.6 MB | 331/704 kBProgress (4): 446/835 kB | 123 kB | 0.3/1.6 MB | 331/704 kBProgress (4): 462/835 kB | 123 kB | 0.3/1.6 MB | 331/704 kBProgress (4): 462/835 kB | 123 kB | 0.3/1.6 MB | 347/704 kBProgress (4): 462/835 kB | 123 kB | 0.3/1.6 MB | 347/704 kBProgress (4): 478/835 kB | 123 kB | 0.3/1.6 MB | 347/704 kBProgress (4): 478/835 kB | 123 kB | 0.3/1.6 MB | 364/704 kBProgress (4): 478/835 kB | 123 kB | 0.3/1.6 MB | 364/704 kBProgress (4): 495/835 kB | 123 kB | 0.3/1.6 MB | 364/704 kBProgress (4): 495/835 kB | 123 kB | 0.3/1.6 MB | 380/704 kBProgress (4): 495/835 kB | 123 kB | 0.3/1.6 MB | 380/704 kBProgress (4): 511/835 kB | 123 kB | 0.3/1.6 MB | 380/704 kBProgress (4): 511/835 kB | 123 kB | 0.3/1.6 MB | 397/704 kBProgress (4): 511/835 kB | 123 kB | 0.3/1.6 MB | 397/704 kBProgress (4): 511/835 kB | 123 kB | 0.3/1.6 MB | 413/704 kBProgress (4): 524/835 kB | 123 kB | 0.3/1.6 MB | 413/704 kBProgress (4): 527/835 kB | 123 kB | 0.3/1.6 MB | 413/704 kBProgress (4): 527/835 kB | 123 kB | 0.3/1.6 MB | 429/704 kBProgress (4): 544/835 kB | 123 kB | 0.3/1.6 MB | 429/704 kBProgress (4): 544/835 kB | 123 kB | 0.4/1.6 MB | 429/704 kBProgress (4): 544/835 kB | 123 kB | 0.4/1.6 MB | 446/704 kBProgress (4): 560/835 kB | 123 kB | 0.4/1.6 MB | 446/704 kBProgress (4): 560/835 kB | 123 kB | 0.4/1.6 MB | 446/704 kBProgress (4): 576/835 kB | 123 kB | 0.4/1.6 MB | 446/704 kBProgress (4): 576/835 kB | 123 kB | 0.4/1.6 MB | 462/704 kBProgress (4): 593/835 kB | 123 kB | 0.4/1.6 MB | 462/704 kBProgress (4): 593/835 kB | 123 kB | 0.4/1.6 MB | 478/704 kBProgress (4): 593/835 kB | 123 kB | 0.4/1.6 MB | 478/704 kBProgress (4): 609/835 kB | 123 kB | 0.4/1.6 MB | 478/704 kBProgress (4): 609/835 kB | 123 kB | 0.4/1.6 MB | 495/704 kBProgress (4): 609/835 kB | 123 kB | 0.4/1.6 MB | 495/704 kBProgress (4): 626/835 kB | 123 kB | 0.4/1.6 MB | 495/704 kBProgress (4): 626/835 kB | 123 kB | 0.4/1.6 MB | 511/704 kBProgress (4): 626/835 kB | 123 kB | 0.4/1.6 MB | 511/704 kBProgress (4): 642/835 kB | 123 kB | 0.4/1.6 MB | 511/704 kBProgress (4): 642/835 kB | 123 kB | 0.4/1.6 MB | 524/704 kBProgress (4): 642/835 kB | 123 kB | 0.4/1.6 MB | 524/704 kBProgress (4): 658/835 kB | 123 kB | 0.4/1.6 MB | 524/704 kBProgress (4): 658/835 kB | 123 kB | 0.4/1.6 MB | 527/704 kBProgress (4): 658/835 kB | 123 kB | 0.5/1.6 MB | 527/704 kBProgress (4): 658/835 kB | 123 kB | 0.5/1.6 MB | 544/704 kBProgress (4): 675/835 kB | 123 kB | 0.5/1.6 MB | 544/704 kBProgress (4): 675/835 kB | 123 kB | 0.5/1.6 MB | 544/704 kBProgress (4): 691/835 kB | 123 kB | 0.5/1.6 MB | 544/704 kBProgress (4): 691/835 kB | 123 kB | 0.5/1.6 MB | 560/704 kBProgress (4): 691/835 kB | 123 kB | 0.5/1.6 MB | 560/704 kBProgress (4): 707/835 kB | 123 kB | 0.5/1.6 MB | 560/704 kBProgress (4): 707/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 707/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 724/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 724/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 740/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 757/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 773/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 773/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 789/835 kB | 123 kB | 0.5/1.6 MB | 576/704 kBProgress (4): 789/835 kB | 123 kB | 0.5/1.6 MB | 593/704 kBProgress (4): 806/835 kB | 123 kB | 0.5/1.6 MB | 593/704 kBProgress (4): 806/835 kB | 123 kB | 0.5/1.6 MB | 609/704 kBProgress (4): 806/835 kB | 123 kB | 0.5/1.6 MB | 609/704 kBProgress (4): 822/835 kB | 123 kB | 0.5/1.6 MB | 609/704 kBProgress (4): 822/835 kB | 123 kB | 0.5/1.6 MB | 626/704 kBProgress (4): 822/835 kB | 123 kB | 0.5/1.6 MB | 642/704 kBProgress (4): 822/835 kB | 123 kB | 0.6/1.6 MB | 642/704 kBProgress (4): 835 kB | 123 kB | 0.6/1.6 MB | 642/704 kB    Progress (4): 835 kB | 123 kB | 0.6/1.6 MB | 658/704 kBProgress (4): 835 kB | 123 kB | 0.6/1.6 MB | 658/704 kBProgress (4): 835 kB | 123 kB | 0.6/1.6 MB | 675/704 kBProgress (4): 835 kB | 123 kB | 0.6/1.6 MB | 675/704 kBProgress (4): 835 kB | 123 kB | 0.6/1.6 MB | 691/704 kBProgress (4): 835 kB | 123 kB | 0.6/1.6 MB | 691/704 kBProgress (4): 835 kB | 123 kB | 0.6/1.6 MB | 704 kB                                                       Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar (123 kB at 630 kB/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-registry-prometheus/1.12.0/micrometer-registry-prometheus-1.12.0.jar
+Progress (3): 835 kB | 0.6/1.6 MB | 704 kBProgress (4): 835 kB | 0.6/1.6 MB | 704 kB | 7.3/44 kBProgress (4): 835 kB | 0.6/1.6 MB | 704 kB | 16/44 kB Progress (4): 835 kB | 0.6/1.6 MB | 704 kB | 16/44 kBProgress (4): 835 kB | 0.7/1.6 MB | 704 kB | 16/44 kBProgress (4): 835 kB | 0.7/1.6 MB | 704 kB | 32/44 kBProgress (4): 835 kB | 0.7/1.6 MB | 704 kB | 44 kB   Progress (4): 835 kB | 0.7/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.7/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.7/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.7/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.7/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.8/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.8/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.8/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.8/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.8/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.8/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.9/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.9/1.6 MB | 704 kB | 44 kBProgress (4): 835 kB | 0.9/1.6 MB | 704 kB | 44 kBProgress (5): 835 kB | 0.9/1.6 MB | 704 kB | 44 kB | 1.9/33 kBProgress (5): 835 kB | 0.9/1.6 MB | 704 kB | 44 kB | 1.9/33 kB                                                              Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-registry-prometheus/1.12.0/micrometer-registry-prometheus-1.12.0.jar (44 kB at 160 kB/s)
+Progress (4): 835 kB | 0.9/1.6 MB | 704 kB | 18/33 kB                                                     Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-core/1.15.1/micrometer-core-1.15.1.jar
+Progress (4): 835 kB | 0.9/1.6 MB | 704 kB | 18/33 kB                                                     Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-actuator-autoconfigure/3.5.3/spring-boot-actuator-autoconfigure-3.5.3.jar (835 kB at 3.0 MB/s)
+Progress (3): 0.9/1.6 MB | 704 kB | 33 kB                                         Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar
+Progress (4): 0.9/1.6 MB | 704 kB | 33 kB | 1.9/864 kBProgress (4): 0.9/1.6 MB | 704 kB | 33 kB | 18/864 kB Progress (4): 0.9/1.6 MB | 704 kB | 33 kB | 18/864 kBProgress (4): 0.9/1.6 MB | 704 kB | 33 kB | 35/864 kBProgress (4): 0.9/1.6 MB | 704 kB | 33 kB | 51/864 kBProgress (4): 1.0/1.6 MB | 704 kB | 33 kB | 51/864 kBProgress (4): 1.0/1.6 MB | 704 kB | 33 kB | 63/864 kBProgress (4): 1.0/1.6 MB | 704 kB | 33 kB | 66/864 kBProgress (4): 1.0/1.6 MB | 704 kB | 33 kB | 66/864 kBProgress (4): 1.0/1.6 MB | 704 kB | 33 kB | 73/864 kBProgress (4): 1.0/1.6 MB | 704 kB | 33 kB | 73/864 kBProgress (4): 1.0/1.6 MB | 704 kB | 33 kB | 90/864 kBProgress (5): 1.0/1.6 MB | 704 kB | 33 kB | 90/864 kB | 7.3/177 kB                                                                  Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/springframework/boot/spring-boot-actuator/3.5.3/spring-boot-actuator-3.5.3.jar (704 kB at 2.3 MB/s)
+Progress (4): 1.0/1.6 MB | 33 kB | 106/864 kB | 7.3/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 106/864 kB | 16/177 kB Progress (4): 1.0/1.6 MB | 33 kB | 123/864 kB | 16/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 123/864 kB | 32/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 123/864 kB | 32/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 139/864 kB | 32/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 139/864 kB | 32/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 139/864 kB | 32/177 kB                                                         Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar
+Progress (4): 1.0/1.6 MB | 33 kB | 155/864 kB | 32/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 172/864 kB | 32/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 172/864 kB | 32/177 kBProgress (4): 1.0/1.6 MB | 33 kB | 188/864 kB | 32/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 188/864 kB | 32/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 188/864 kB | 48/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 204/864 kB | 48/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 204/864 kB | 48/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 221/864 kB | 48/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 237/864 kB | 48/177 kB                                                         Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar (0 B at 0 B/s)
+Downloading from aliyunmaven: https://maven.aliyun.com/repository/public/io/prometheus/simpleclient_common/0.16.0/simpleclient_common-0.16.0.jar
+Progress (4): 1.1/1.6 MB | 33 kB | 237/864 kB | 48/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 237/864 kB | 48/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 237/864 kB | 48/177 kBProgress (4): 1.1/1.6 MB | 33 kB | 237/864 kB | 48/177 kBProgress (4): 1.2/1.6 MB | 33 kB | 237/864 kB | 48/177 kBProgress (4): 1.2/1.6 MB | 33 kB | 237/864 kB | 48/177 kBProgress (5): 1.2/1.6 MB | 33 kB | 237/864 kB | 48/177 kB | 3.4/8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 254/864 kB | 48/177 kB | 3.4/8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 254/864 kB | 63/177 kB | 3.4/8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 254/864 kB | 63/177 kB | 8.0 kB    Progress (5): 1.2/1.6 MB | 33 kB | 270/864 kB | 63/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 270/864 kB | 63/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 286/864 kB | 63/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 286/864 kB | 80/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 286/864 kB | 80/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 286/864 kB | 96/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 286/864 kB | 96/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 286/864 kB | 112/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 286/864 kB | 112/177 kB | 8.0 kBProgress (5): 1.2/1.6 MB | 33 kB | 286/864 kB | 129/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 286/864 kB | 129/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 303/864 kB | 129/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 303/864 kB | 145/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 303/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 319/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 319/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 336/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 336/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 352/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 352/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 368/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 368/864 kB | 149/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 368/864 kB | 165/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 368/864 kB | 165/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 385/864 kB | 165/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 385/864 kB | 170/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 401/864 kB | 170/177 kB | 8.0 kBProgress (5): 1.3/1.6 MB | 33 kB | 401/864 kB | 177/177 kB | 8.0 kBProgress (5): 1.4/1.6 MB | 33 kB | 401/864 kB | 177/177 kB | 8.0 kBProgress (5): 1.4/1.6 MB | 33 kB | 401/864 kB | 177 kB | 8.0 kB    Progress (5): 1.4/1.6 MB | 33 kB | 417/864 kB | 177 kB | 8.0 kB                                                               Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/io/prometheus/simpleclient_common/0.16.0/simpleclient_common-0.16.0.jar (8.0 kB at 21 kB/s)
+Progress (4): 1.4/1.6 MB | 33 kB | 434/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 434/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 450/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 450/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 467/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 467/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 483/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 499/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 516/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 532/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 532/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 545/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 545/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 561/864 kB | 177 kBProgress (4): 1.4/1.6 MB | 33 kB | 577/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 577/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 577/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 594/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 594/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 610/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 610/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 627/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 643/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 659/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 659/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 676/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 676/864 kB | 177 kBProgress (4): 1.5/1.6 MB | 33 kB | 692/864 kB | 177 kBProgress (4): 1.6/1.6 MB | 33 kB | 692/864 kB | 177 kBProgress (4): 1.6/1.6 MB | 33 kB | 709/864 kB | 177 kBProgress (4): 1.6/1.6 MB | 33 kB | 709/864 kB | 177 kBProgress (4): 1.6/1.6 MB | 33 kB | 725/864 kB | 177 kBProgress (4): 1.6/1.6 MB | 33 kB | 725/864 kB | 177 kBProgress (4): 1.6/1.6 MB | 33 kB | 741/864 kB | 177 kBProgress (4): 1.6/1.6 MB | 33 kB | 741/864 kB | 177 kBProgress (4): 1.6/1.6 MB | 33 kB | 758/864 kB | 177 kBProgress (4): 1.6 MB | 33 kB | 758/864 kB | 177 kB    Progress (4): 1.6 MB | 33 kB | 774/864 kB | 177 kBProgress (4): 1.6 MB | 33 kB | 790/864 kB | 177 kBProgress (4): 1.6 MB | 33 kB | 807/864 kB | 177 kBProgress (4): 1.6 MB | 33 kB | 823/864 kB | 177 kBProgress (4): 1.6 MB | 33 kB | 840/864 kB | 177 kBProgress (4): 1.6 MB | 33 kB | 856/864 kB | 177 kBProgress (4): 1.6 MB | 33 kB | 864 kB | 177 kB                                                  Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar (177 kB at 384 kB/s)
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-core/1.15.1/micrometer-core-1.15.1.jar (864 kB at 1.8 MB/s)
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/io/micrometer/micrometer-jakarta9/1.15.1/micrometer-jakarta9-1.15.1.jar (33 kB at 57 kB/s)
+Downloaded from aliyunmaven: https://maven.aliyun.com/repository/public/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar (1.6 MB at 1.9 MB/s)
+[INFO] 
+[INFO] --- dependency:2.8:tree (default-cli) @ pinyougou-gateway ---
+[WARNING] Parameter 'localRepository' is deprecated core expression; Avoid use of ArtifactRepository type. If you need access to local repository, switch to '${repositorySystemSession}' expression and get LRM from it instead.
+[INFO] com.poap:pinyougou-gateway:jar:0.0.1-SNAPSHOT
+[INFO] +- org.springframework.cloud:spring-cloud-starter-gateway:jar:4.3.0:compile
+[INFO] |  +- org.springframework.cloud:spring-cloud-starter:jar:4.3.0:compile
+[INFO] |  |  \- org.bouncycastle:bcprov-jdk18on:jar:1.80:compile
+[INFO] |  +- org.springframework.cloud:spring-cloud-gateway-server:jar:4.3.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-validation:jar:3.5.3:compile
+[INFO] |  |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.42:compile
+[INFO] |  |  |  \- org.hibernate.validator:hibernate-validator:jar:8.0.2.Final:compile
+[INFO] |  |  |     +- jakarta.validation:jakarta.validation-api:jar:3.0.2:compile
+[INFO] |  |  |     +- org.jboss.logging:jboss-logging:jar:3.6.1.Final:compile
+[INFO] |  |  |     \- com.fasterxml:classmate:jar:1.7.0:compile
+[INFO] |  |  \- io.projectreactor.addons:reactor-extra:jar:3.5.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-webflux:jar:3.5.3:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-json:jar:3.5.3:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.19.1:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.19.1:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-reactor-netty:jar:3.5.3:compile
+[INFO] |  |  |  \- io.projectreactor.netty:reactor-netty-http:jar:1.2.7:compile
+[INFO] |  |  |     +- io.netty:netty-codec-http:jar:4.1.122.Final:compile
+[INFO] |  |  |     |  +- io.netty:netty-common:jar:4.1.122.Final:compile
+[INFO] |  |  |     |  +- io.netty:netty-buffer:jar:4.1.122.Final:compile
+[INFO] |  |  |     |  +- io.netty:netty-transport:jar:4.1.122.Final:compile
+[INFO] |  |  |     |  +- io.netty:netty-codec:jar:4.1.122.Final:compile
+[INFO] |  |  |     |  \- io.netty:netty-handler:jar:4.1.122.Final:compile
+[INFO] |  |  |     +- io.netty:netty-codec-http2:jar:4.1.122.Final:compile
+[INFO] |  |  |     +- io.netty:netty-resolver-dns:jar:4.1.122.Final:compile
+[INFO] |  |  |     |  +- io.netty:netty-resolver:jar:4.1.122.Final:compile
+[INFO] |  |  |     |  \- io.netty:netty-codec-dns:jar:4.1.122.Final:compile
+[INFO] |  |  |     +- io.netty:netty-resolver-dns-native-macos:jar:osx-x86_64:4.1.122.Final:compile
+[INFO] |  |  |     |  \- io.netty:netty-resolver-dns-classes-macos:jar:4.1.122.Final:compile
+[INFO] |  |  |     +- io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.1.122.Final:compile
+[INFO] |  |  |     |  +- io.netty:netty-transport-native-unix-common:jar:4.1.122.Final:compile
+[INFO] |  |  |     |  \- io.netty:netty-transport-classes-epoll:jar:4.1.122.Final:compile
+[INFO] |  |  |     \- io.projectreactor.netty:reactor-netty-core:jar:1.2.7:compile
+[INFO] |  |  |        \- io.netty:netty-handler-proxy:jar:4.1.122.Final:compile
+[INFO] |  |  |           \- io.netty:netty-codec-socks:jar:4.1.122.Final:compile
+[INFO] |  |  +- org.springframework:spring-web:jar:6.2.8:compile
+[INFO] |  |  |  \- org.springframework:spring-beans:jar:6.2.8:compile
+[INFO] |  |  \- org.springframework:spring-webflux:jar:6.2.8:compile
+[INFO] |  \- org.springframework.boot:spring-boot-properties-migrator:jar:3.5.3:compile
+[INFO] |     +- org.springframework.boot:spring-boot:jar:3.5.3:compile
+[INFO] |     |  \- org.springframework:spring-context:jar:6.2.8:compile
+[INFO] |     |     +- org.springframework:spring-aop:jar:6.2.8:compile
+[INFO] |     |     \- org.springframework:spring-expression:jar:6.2.8:compile
+[INFO] |     \- org.springframework.boot:spring-boot-configuration-metadata:jar:3.5.3:runtime
+[INFO] +- org.projectlombok:lombok:jar:1.18.38:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:3.5.3:test
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:3.5.3:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:3.5.3:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.5.3:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.18:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.5.18:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.24.3:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.24.3:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.17:compile
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:2.4:compile
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:3.5.3:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:3.5.3:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.9.0:test
+[INFO] |  |  \- org.slf4j:slf4j-api:jar:2.0.17:compile
+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:test
+[INFO] |  |  \- jakarta.activation:jakarta.activation-api:jar:2.1.3:test
+[INFO] |  +- net.minidev:json-smart:jar:2.5.2:test
+[INFO] |  |  \- net.minidev:accessors-smart:jar:2.5.2:test
+[INFO] |  |     \- org.ow2.asm:asm:jar:9.7.1:test
+[INFO] |  +- org.assertj:assertj-core:jar:3.27.3:test
+[INFO] |  |  \- net.bytebuddy:byte-buddy:jar:1.17.6:test
+[INFO] |  +- org.awaitility:awaitility:jar:4.2.2:test
+[INFO] |  +- org.hamcrest:hamcrest:jar:3.0:test
+[INFO] |  +- org.junit.jupiter:junit-jupiter:jar:5.12.2:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-api:jar:5.12.2:test
+[INFO] |  |  |  +- org.opentest4j:opentest4j:jar:1.3.0:test
+[INFO] |  |  |  +- org.junit.platform:junit-platform-commons:jar:1.12.2:test
+[INFO] |  |  |  \- org.apiguardian:apiguardian-api:jar:1.1.2:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-params:jar:5.12.2:test
+[INFO] |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.12.2:test
+[INFO] |  |     \- org.junit.platform:junit-platform-engine:jar:1.12.2:test
+[INFO] |  +- org.mockito:mockito-core:jar:5.17.0:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.17.6:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:3.3:test
+[INFO] |  +- org.mockito:mockito-junit-jupiter:jar:5.17.0:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.3:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:runtime
+[INFO] |  +- org.springframework:spring-core:jar:6.2.8:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:6.2.8:compile
+[INFO] |  +- org.springframework:spring-test:jar:6.2.8:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.10.2:test
+[INFO] +- com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:jar:2022.0.0.0:compile
+[INFO] |  +- com.alibaba.cloud:spring-cloud-alibaba-commons:jar:2022.0.0.0:compile
+[INFO] |  +- com.alibaba.nacos:nacos-client:jar:2.2.1:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-auth-plugin:jar:2.2.1:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-encryption-plugin:jar:2.2.1:compile
+[INFO] |  |  +- commons-codec:commons-codec:jar:1.18.0:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.19.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.5:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.16:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.16:compile
+[INFO] |  |  |  \- org.apache.httpcomponents:httpclient:jar:4.5.13:compile
+[INFO] |  |  \- io.prometheus:simpleclient:jar:0.16.0:compile
+[INFO] |  |     +- io.prometheus:simpleclient_tracer_otel:jar:0.16.0:compile
+[INFO] |  |     |  \- io.prometheus:simpleclient_tracer_common:jar:0.16.0:compile
+[INFO] |  |     \- io.prometheus:simpleclient_tracer_otel_agent:jar:0.16.0:compile
+[INFO] |  +- com.alibaba.spring:spring-context-support:jar:1.0.11:compile
+[INFO] |  +- org.springframework.cloud:spring-cloud-commons:jar:4.3.0:compile
+[INFO] |  |  \- org.springframework.security:spring-security-crypto:jar:6.5.1:compile
+[INFO] |  \- org.springframework.cloud:spring-cloud-context:jar:4.3.0:compile
+[INFO] +- org.springframework.cloud:spring-cloud-starter-loadbalancer:jar:4.3.0:compile
+[INFO] |  +- org.springframework.cloud:spring-cloud-loadbalancer:jar:4.3.0:compile
+[INFO] |  |  \- io.projectreactor:reactor-core:jar:3.7.7:compile
+[INFO] |  |     \- org.reactivestreams:reactive-streams:jar:1.0.4:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-cache:jar:3.5.3:compile
+[INFO] |  |  \- org.springframework:spring-context-support:jar:6.2.8:compile
+[INFO] |  \- com.stoyanr:evictor:jar:1.0.0:compile
+[INFO] +- net.logstash.logback:logstash-logback-encoder:jar:8.1:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.15.3:compile
+[INFO] |     \- com.fasterxml.jackson.core:jackson-annotations:jar:2.19.1:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-actuator:jar:3.5.3:compile
+[INFO] |  +- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:3.5.3:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-actuator:jar:3.5.3:compile
+[INFO] |  |  \- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.15.3:compile
+[INFO] |  +- io.micrometer:micrometer-observation:jar:1.15.1:compile
+[INFO] |  |  \- io.micrometer:micrometer-commons:jar:1.15.1:compile
+[INFO] |  \- io.micrometer:micrometer-jakarta9:jar:1.15.1:compile
+[INFO] \- io.micrometer:micrometer-registry-prometheus:jar:1.12.0:compile
+[INFO]    +- io.micrometer:micrometer-core:jar:1.15.1:compile
+[INFO]    |  +- org.hdrhistogram:HdrHistogram:jar:2.2.2:runtime
+[INFO]    |  \- org.latencyutils:LatencyUtils:jar:2.0.3:runtime
+[INFO]    \- io.prometheus:simpleclient_common:jar:0.16.0:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:09 min
+[INFO] Finished at: 2025-07-21T16:36:00+08:00
+[INFO] ------------------------------------------------------------------------

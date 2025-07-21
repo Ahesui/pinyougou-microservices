@@ -15,6 +15,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder; // 导入加密器
 import lombok.RequiredArgsConstructor; 
+import java.util.List;
 
 @Service
 @Slf4j
@@ -120,4 +121,17 @@ public class UserService {
         return dbUser;
     }
 
+    /**
+     * @return 用户列表
+     */
+    public List<User> findAllUsers() {
+        log.info("正在查询所有用户信息...");
+        List<User> users = userRepository.findAll();
+        
+        // 最佳实践：在返回列表给前端之前，清除所有用户的敏感信息，比如密码
+        users.forEach(user -> user.setPassword(null));
+        
+        log.info("查询到 {} 个用户", users.size());
+        return users;
+    }
 }
