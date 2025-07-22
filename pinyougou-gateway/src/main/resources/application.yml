@@ -11,20 +11,22 @@ spring:
         server-addr: localhost:8848
 
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
 
-      routes:
-        - id: user-service-route
-          uri: lb://pinyougou-user-service
-          predicates:
-            - Path=/api/users/**
-        - id: product-service-route
-          uri: lb://pinyougou-product-service
-          predicates:
-            - Path=/api/products/**
+          routes:
+            - id: user-service-route
+              uri: lb://pinyougou-user-service
+              predicates:
+                - Path=/api/users/**
+            - id: product-service-route
+              uri: lb://pinyougou-product-service
+              predicates:
+                - Path=/api/products/**
 cors:
   allowed-origins: "http://127.0.0.1:3000,http://localhost:3000"
 logging:

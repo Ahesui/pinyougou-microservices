@@ -1,4 +1,43 @@
+x-common-configs:
+  # 2. 使用锚点'&'来标记这个'volumes'配置块
+  logging: &common-logging
+    volumes:
+      - pinyougou_app_logs:/app/a_logs
+
 services:
+  rocketmq-nameserver:
+    image: apache/rocketmq:5.3.2 # 使用官方镜像
+    container_name: rmqnamesrv
+    ports:
+      - "9876:9876"
+    networks:
+      - rocketmq      
+    # 不需要太多内存
+    mem_limit: 512m
+    command: sh mqnamesrv 
+
+  # 2. RocketMQ Broker
+  rocketmq-broker:
+    image: apache/rocketmq:5.3.2
+    container_name: rmqbroker
+    ports:
+      # 这三个端口必须映射出来，供外部客户端(我们的微服务)连接
+      - "10911:10911"
+      - "10912:10912"
+    volumes:
+      - ./rocketmq/broker.conf:/home/rocketmq/rocketmq-5.3.2/conf/broker.conf
+    environment:
+      # 通过环境变量告诉Broker，NameServer的地址是什么
+      # 'rmqnamesrv' 是上面定义的服务名
+      - "NAMESRV_ADDR=rmqnamesrv:9876"
+      - "JAVA_OPT_EXT=-Xms512m -Xmx512m -XX:+UseG1GC -XX:MaxGCPauseMillis=200"
+    command: sh mqbroker -c /home/rocketmq/rocketmq-5.3.2/conf/broker.conf
+    depends_on:
+      - rocketmq-nameserver # 确保NameServer先于Broker启动
+    networks:
+      - rocketmq 
+    mem_limit: 1g # Broker需要相对多一些的内存
+
   nacos:
     image: nacos/nacos-server:v2.5.0
     container_name: nacos
@@ -34,99 +73,201 @@ services:
       - redis_data:/data
     mem_limit: 256m 
 
-  elasticsearch:
-    image: elasticsearch:7.17.15 # 选择一个稳定版本
-    container_name: es
+  # elasticsearch:
+  #   image: elasticsearch:7.17.15 # 选择一个稳定版本
+  #   container_name: es
+  #   environment:
+  #     - discovery.type=single-node
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # 开发环境限制内存
+  #   ports:
+  #     - "9200:9200"
+  #     - "9300:9300"
+  #   volumes:
+  #     - es_data:/usr/share/elasticsearch/data
+  #   mem_limit: 1g
+
+  # kibana:
+  #   image: kibana:7.17.15
+  #   container_name: kibana
+  #   environment:
+  #     - ELASTICSEARCH_HOSTS=http://es:9200 # kibana连接es
+  #     - "NODE_OPTIONS=--max-old-space-size=256"
+  #   ports:
+  #     - "5601:5601"
+  #   depends_on:
+  #     - elasticsearch
+  #   mem_limit: 512m
+
+  # logstash:
+  #   image: logstash:7.17.15
+  #   container_name: logstash
+  #   ports:
+  #     - "4760:4760" # 暴露一个TCP端口接收日志 (可选)
+  #   environment:
+  #     # 限制Logstash的JVM堆内存
+  #     - "LS_JAVA_OPTS=-Xms256m -Xmx256m"      
+  #   volumes:
+  #     - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+  #     - ./logstash/pipeline:/usr/share/logstash/pipeline
+  #     - /e/code_space/java/2025/07/3/logs/pinyougou-logs:/usr/share/logstash/sincedb
+  #   depends_on:
+  #     - elasticsearch
+  #   mem_limit: 512m
+
+  # prometheus:
+  #   image: prom/prometheus:v2.47.2
+  #   container_name: prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+  #     - prometheus_data:/prometheus
+  #   depends_on:
+  #     - nacos      
+  #   mem_limit: 512m
+
+  # grafana:
+  #   image: grafana/grafana:10.2.0
+  #   container_name: grafana
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - grafana_data:/var/lib/grafana
+  #   depends_on:
+  #     - prometheus
+  #   mem_limit: 512m
+
+  # skywalking-oap:
+  #   image: apache/skywalking-oap-server:9.6.0
+  #   container_name: skywalking-oap
+  #   ports:
+  #     - "11800:11800"
+  #     - "12800:12800"
+  #   environment:
+  #     SW_STORAGE: elasticsearch
+  #     SW_STORAGE_ES_CLUSTER_NODES: es:9200
+  #     # 限制SkyWalking OAP的JVM堆内存
+  #     SW_OAP_JVM_OPTS: "-Xms256m -Xmx512m"
+  #   depends_on:
+  #     - elasticsearch
+  #   mem_limit: 512m
+
+  # skywalking-ui:
+  #   image: apache/skywalking-ui:9.6.0
+  #   container_name: skywalking-ui
+  #   ports:
+  #     - "19090:8080"
+  #   environment:
+  #     SW_OAP_ADDRESS: http://skywalking-oap:12800
+  #   depends_on:
+  #     - skywalking-oap
+  #   mem_limit: 256m 
+
+  gateway:
+      build:
+        context: ..
+        dockerfile: pinyougou-gateway/Dockerfile
+      container_name: gateway
+      ports:
+        - "18080:18080"
+      environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos:8848
+      - "JAVA_TOOL_OPTIONS=-Xms128m -Xmx256m  "
+      depends_on:
+      - nacos
+      # - user-service  # 显式依赖它所代理的服务
+      # - product-service # 这能让Compose在启动网关前，先启动后端服务
+      <<: *common-logging
+
+  user-service:
+    build:
+      context: ..
+      dockerfile: pinyougou-user-service/Dockerfile
+    container_name: user-service
+    ports:
+      - "18081:18081"
     environment:
-      - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # 开发环境限制内存
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    volumes:
-      - es_data:/usr/share/elasticsearch/data
-    mem_limit: 1g
+        # 1. Spring Profile (可选，但推荐)
+      - SPRING_PROFILES_ACTIVE=docker
+      # 2. 数据库配置
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/pinyougou_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=ahui # 从环境变量读取密码
+      # 3. Nacos 配置
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos:8848
+      # 4. Redis 配置
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+      # 5. RocketMQ 配置
+      - ROCKETMQ_NAME-SERVER=rmqnamesrv:9876 # 注意：这里的环境变量名是 ROCKETMQ_NAME-SERVER
+      # 6. JVM 内存限制
+      - "JAVA_TOOL_OPTIONS=-Xms128m -Xmx256m"      
+    depends_on:
+      # 声明此服务依赖于以下服务，Compose会确保它们先启动
+      - nacos
+      - redis
+      - rocketmq-nameserver
+      - rocketmq-broker
+    <<: *common-logging
 
-  kibana:
-    image: kibana:7.17.15
-    container_name: kibana
+
+  product-service:
+    build:
+      context: ..
+      dockerfile: pinyougou-product-service/Dockerfile
+    container_name: product-service
+    ports:
+      - "18082:18082"
     environment:
-      - ELASTICSEARCH_HOSTS=http://es:9200 # kibana连接es
-      - "NODE_OPTIONS=--max-old-space-size=256"
-    ports:
-      - "5601:5601"
+      # 1. Spring Profile (可选，但推荐)
+      - SPRING_PROFILES_ACTIVE=docker
+      # 2. 数据库配置
+      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/pinyougou_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=ahui # 从环境变量读取密码
+      # 3. Nacos 配置
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos:8848
+      # 4. Redis 配置
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+      # 5. JVM 内存限制
+      - "JAVA_TOOL_OPTIONS=-Xms128m -Xmx256m"      
     depends_on:
-      - elasticsearch
-    mem_limit: 512m
+      - nacos
+      - redis
+    <<: *common-logging
 
-  logstash:
-    image: logstash:7.17.15
-    container_name: logstash
+  notification-service:
+    build:
+      context: ..
+      dockerfile: pinyougou-notification-service/Dockerfile
+    container_name: notification-service
     ports:
-      - "4760:4760" # 暴露一个TCP端口接收日志 (可选)
+      - "18083:18083"
     environment:
-      # 限制Logstash的JVM堆内存
-      - "LS_JAVA_OPTS=-Xms256m -Xmx256m"      
-    volumes:
-      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-      - ./logstash/pipeline:/usr/share/logstash/pipeline
-      - /e/code_space/java/2025/07/3/logs/pinyougou-logs:/usr/share/logstash/sincedb
+      # 1. Spring Profile (可选，但推荐)
+      - SPRING_PROFILES_ACTIVE=docker
+      # 2. RocketMQ 配置
+      - ROCKETMQ_NAME-SERVER=rmqnamesrv:9876 # 注意：这里的环境变量名是 ROCKETMQ_NAME-SERVER
+      # 3. Nacos 配置
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos:8848
+      # 5. JVM 内存限制
+      - "JAVA_TOOL_OPTIONS=-Xms128m -Xmx256m"      
     depends_on:
-      - elasticsearch
-    mem_limit: 512m
-
-  prometheus:
-    image: prom/prometheus:v2.47.2
-    container_name: prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus_data:/prometheus
-    depends_on:
-      - nacos      
-    mem_limit: 512m
-
-  grafana:
-    image: grafana/grafana:10.2.0
-    container_name: grafana
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafana_data:/var/lib/grafana
-    depends_on:
-      - prometheus
-    mem_limit: 512m
-
-  skywalking-oap:
-    image: apache/skywalking-oap-server:9.6.0
-    container_name: skywalking-oap
-    ports:
-      - "11800:11800"
-      - "12800:12800"
-    environment:
-      SW_STORAGE: elasticsearch
-      SW_STORAGE_ES_CLUSTER_NODES: es:9200
-      # 限制SkyWalking OAP的JVM堆内存
-      SW_OAP_JVM_OPTS: "-Xms256m -Xmx512m"
-    depends_on:
-      - elasticsearch
-    mem_limit: 512m
-
-  skywalking-ui:
-    image: apache/skywalking-ui:9.6.0
-    container_name: skywalking-ui
-    ports:
-      - "19090:8080"
-    environment:
-      SW_OAP_ADDRESS: http://skywalking-oap:12800
-    depends_on:
-      - skywalking-oap
-    mem_limit: 256m 
+      - nacos
+      - rocketmq-nameserver
+      - rocketmq-broker
+    <<: *common-logging
 
 volumes:
   nacos-data:
-  es_data:
-  prometheus_data:
-  grafana_data:
   redis_data:
+  # es_data:
+  # prometheus_data:
+  # grafana_data:
+  pinyougou_app_logs:
+  
+networks:
+  rocketmq:
+    driver: bridge
