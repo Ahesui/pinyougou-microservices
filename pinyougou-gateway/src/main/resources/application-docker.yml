@@ -1,0 +1,4 @@
+logging:
+  file:
+    name: pinyougou-logs/gateway.log
+    path: pinyougou-logs

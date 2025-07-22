@@ -1,0 +1,32 @@
+server.port=18080
+spring.application.name=pinyougou-gateway
+spring.cloud.nacos.discovery.server-addr=localhost:18848
+
+# 配置路由规则
+spring.cloud.gateway.discovery.locator.enabled=true
+spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+
+# 自定义路由规则 (更灵活，推荐)
+spring.cloud.gateway.routes[0].id=user-service-route
+spring.cloud.gateway.routes[0].uri=lb://pinyougou-user-service
+spring.cloud.gateway.routes[0].predicates[0]=Path=/api/users/**
+
+spring.cloud.gateway.routes[1].id=product-service-route
+spring.cloud.gateway.routes[1].uri=lb://pinyougou-product-service
+spring.cloud.gateway.routes[1].predicates[0]=Path=/api/products/**
+
+
+logging.file.name=logs/pinyougou-logs/gateway.log
+logging.file.path=logs/pinyougou-logs
+
+# 暴露所有actuator端点，包括prometheus
+management.endpoints.web.exposure.include=*
+# 在Nacos元数据中添加一个标签，告诉Prometheus“我有监控接口”
+spring.cloud.nacos.discovery.metadata.actuator_prometheus_exist=true
+
+
+# Spring Cloud Gateway CORS Configuration (Updated for newer versions)
+spring.cloud.gateway.server.webflux.globalcors.cors-configurations.['[/**]'].allowed-origins=http://localhost:5173
+spring.cloud.gateway.server.webflux.globalcors.cors-configurations.['[/**]'].allowed-methods=GET,POST,PUT,DELETE,OPTIONS
+spring.cloud.gateway.server.webflux.globalcors.cors-configurations.['[/**]'].allow-credentials=true
+spring.cloud.gateway.server.webflux.globalcors.cors-configurations.['[/**]'].allowed-headers=*

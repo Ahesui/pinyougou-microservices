@@ -1,0 +1,36 @@
+# Git related
+.git
+.gitignore
+
+# IDE and OS specific files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Maven build output - not needed in context
+target/
+**/target/
+
+# Log files and directories
+*.log
+logs/
+a_logs/
+
+# --- 核心：忽略前端的依赖和构建产物 ---
+pinyougou-admin-frontend/node_modules/
+pinyougou-admin-frontend/dist/
+.pnpm-store/
+
+# Flutter app related (if they are in the context)
+pinyougou_app/build/
+pinyougou_app/.dart_tool/
+pinyougou_app/.idea/
+pinyougou_app/.ios/
+pinyougou_app/.android/
+
+# Docker files themselves (not needed inside the context)
+# .dockerignore
+# Dockerfile # 如果Dockerfile在构建上下文根目录，可以忽略
+# docker-compose.yml
